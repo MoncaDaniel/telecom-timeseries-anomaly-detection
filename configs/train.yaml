@@ -1,0 +1,36 @@
+project:
+  name: network-anomaly-detection
+  seed: 42
+
+data:
+  dataset_name: AliMaatouk/TelecomTS
+  data_files_pattern: "**/chunked.jsonl"
+
+features:
+  selected_kpis:
+    - RSRP
+    - DL_BLER
+    - UL_BLER
+    - UL_MCS
+    - TX_Bytes
+    - RX_Bytes
+  window_size: 20
+
+training:
+  # (définition) epochs = nombre de fois où le modèle voit toutes les données
+  epochs: 8
+  # (définition) batch_size = nombre d'exemples traités en une fois
+  batch_size: 128
+  # (définition) learning_rate (lr) = vitesse d’apprentissage du modèle
+  learning_rate: 0.001
+
+thresholding:
+  # (définition) percentile = seuil basé sur les erreurs "normales"
+  percentile: 99
+
+artifacts:
+  output_dir: models
+  model_path: models/lstm_autoencoder.pt
+  scaler_path: models/scaler.joblib
+  threshold_path: models/threshold.json
+  metadata_path: models/metadata.json

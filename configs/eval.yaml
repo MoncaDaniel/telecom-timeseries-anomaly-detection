@@ -1,0 +1,39 @@
+project:
+  seed: 42
+
+data:
+  dataset_name: AliMaatouk/TelecomTS
+  data_files_pattern: "**/chunked.jsonl"
+
+features:
+  selected_kpis:
+    - RSRP
+    - DL_BLER
+    - UL_BLER
+    - UL_MCS
+    - TX_Bytes
+    - RX_Bytes
+  window_size: 20
+
+artifacts:
+  model_path: models/lstm_autoencoder.pt
+  scaler_path: models/scaler.joblib
+  threshold_path: models/threshold.json
+
+evaluation:
+  n_per_class: 50
+
+  # (définition) decision_thresholds:
+  # seuils sur pct_windows_flagged (niveau "incident au niveau du sample")
+  decision_thresholds: [0.01, 0.02, 0.05, 0.10, 0.20]
+
+  # quel critère choisir pour recommander un seuil
+  # options simples: "f1" ou "recall" (recall = détecter un max d'incidents)
+  selection_metric: "f1"
+
+  output_csv: reports/eval_summary.csv
+  metrics_json: reports/eval_metrics.json
+  scan_csv: reports/decision_threshold_scan.csv
+
+
+

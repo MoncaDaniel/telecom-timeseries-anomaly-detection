@@ -1,0 +1,26 @@
+{
+  "n_samples_evaluated": 100,
+  "window_size": 20,
+  "reconstruction_error_threshold": 5.547495334212726e-07,
+  "decision_thresholds_tested": [
+    0.01,
+    0.02,
+    0.05,
+    0.1,
+    0.2
+  ],
+  "selection_metric": "f1",
+  "best_decision_threshold": 0.05,
+  "best_metrics": {
+    "confusion_matrix": {
+      "tp": 25,
+      "fp": 0,
+      "fn": 25,
+      "tn": 50
+    },
+    "accuracy": 0.75,
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1": 0.6666666666666666
+  }
+}

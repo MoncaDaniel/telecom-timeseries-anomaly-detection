@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+
+# Data
+data/raw/
+data/processed/
+data/external/
+
+# Models / artifacts (reproducible)
+models/*.pt
+models/*.joblib
+models/*.json
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Streamlit
+.streamlit/
+
+# OS
+.DS_Store

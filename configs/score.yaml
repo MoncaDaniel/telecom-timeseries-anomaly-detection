@@ -1,0 +1,26 @@
+project:
+  seed: 42
+
+data:
+  dataset_name: AliMaatouk/TelecomTS
+  data_files_pattern: "**/chunked.jsonl"
+
+features:
+  selected_kpis:
+    - RSRP
+    - DL_BLER
+    - UL_BLER
+    - UL_MCS
+    - TX_Bytes
+    - RX_Bytes
+  window_size: 20
+
+artifacts:
+  model_path: models/lstm_autoencoder.pt
+  scaler_path: models/scaler.joblib
+  threshold_path: models/threshold.json
+
+scoring:
+  # score un seul sample pour commencer (index dans le dataset)
+  sample_index: 0
+  output_csv: reports/sample_0_scores.csv
