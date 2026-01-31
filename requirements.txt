@@ -13,3 +13,5 @@ torchvision
 torchaudio
 datasets
 streamlit
+plotly
+joblib
