@@ -7,7 +7,7 @@ from src.data.load_telecomts import load_telecomts
 from src.training.train import train_from_config
 from src.inference.score import score_sample_from_config
 from src.inference.evaluate import evaluate_from_config
-
+from streamlit_app import 
 
 def load_config(path: str):
     with open(path, "r") as f:
