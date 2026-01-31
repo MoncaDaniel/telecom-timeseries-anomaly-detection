@@ -6,6 +6,11 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import plotly.graph_objects as go
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+sys.path.append(str(ROOT))
 
 from src.data.load_telecomts import load_telecomts
 from src.inference.predict_sample import load_artifacts, score_sample
